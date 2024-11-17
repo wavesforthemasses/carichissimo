@@ -1,0 +1,12 @@
+@import './design.css';
+@import './reset.css';
+
+/* Apply fonts */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+}
+
+body, p, button, input, select, textarea {
+    font-family: var(--font-body);
+}
