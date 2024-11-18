@@ -18,7 +18,7 @@
     <Hero section={{
             title: 'Carichissimo Business',
             description: 'Un caffè per fare la differenza nel tuo bar',
-            image: '/bar.jpeg',
+            image: `/bar.jpeg`,
             action: 'Contattaci',
             link: 'https://carichissimopartner.it/contatto/'
         }} 
@@ -44,7 +44,7 @@
             { text: "Richiedi consulenza", href: 'https://carichissimopartner.it/contatto/', secondary: false }
         ]}
         floatingCard={{ icon: "ri-cup-line", text: "Per i Bar", href: 'https://carichissimopartner.it/contatto/' }}
-        imageUrl="/tazzina.jpg"
+        imageUrl={`/tazzina.jpg`}
     />
 
     <Spacer huge />
@@ -89,7 +89,7 @@
     >
         <Story section={{
             title: 'Il Futuro del Bar Italiano',
-            image: '/bar-moderno2.jpeg'
+            image: `/bar-moderno2.jpeg`
         }}>
             Il classico modello di bar italiano sta attraversando una trasformazione epocale. 
             La clientela di oggi ha esigenze diverse e cerca un'esperienza unica.<br /><br />
@@ -112,7 +112,7 @@
         ]}
         stats={[]}
         floatingCard={{ icon: "ri-cup-line", text: "Per i Bar", href: 'https://carichissimopartner.it/contatto/' }}
-        imageUrl="/consulenza.jpg"
+        imageUrl={`/consulenza.jpg`}
     />
 
     <Spacer huge />

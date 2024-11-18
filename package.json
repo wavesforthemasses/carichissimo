@@ -7,7 +7,7 @@
 		"build": "NODE_ENV=production vite build",
 		"preview": "vite preview",
 		"push": "git pull && git add . && git commit -m 'update' && git push -u origin main",
-		"deploy": "npm run push && npm run build && touch build/.nojekyll && npx gh-pages -d build"
+		"deploy": "npm run build && touch build/.nojekyll && npx gh-pages -d build"
 	},
 	"devDependencies": {
 		"@sveltejs/adapter-auto": "^3.0.0",
@@ -19,6 +19,7 @@
 		"vite": "^5.0.3"
 	},
 	"dependencies": {
+		"@sveltejs/adapter-vercel": "^5.4.7",
 		"remixicon": "^4.5.0"
 	}
 }

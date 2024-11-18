@@ -5,8 +5,8 @@
 </script>
 
 <FloatingMenu menuItems={[
-    { text: 'Home', href: '/' },
-    { text: 'Bar', href: '/bar' },
+    { text: 'Home', href: `/` },
+    { text: 'Bar', href: `/bar` },
     { text: 'Shop', href: 'https://carichissimo-partner.sumupstore.com/prodotti' }
 ]} />
 
