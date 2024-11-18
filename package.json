@@ -4,7 +4,7 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build",
+		"build": "NODE_ENV=production vite build",
 		"preview": "vite preview",
 		"push": "git pull && git add . && git commit -m 'update' && git push -u origin main",
 		"deploy": "npm run push && vite build && npx gh-pages -d build"
