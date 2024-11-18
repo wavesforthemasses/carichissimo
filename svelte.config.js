@@ -15,6 +15,12 @@ const config = {
 		}),
 		paths: {
 			base: process.env.NODE_ENV === 'production' ? '/carichissimo' : ''
+		},
+		prerender: {
+			handleHttpError: ({ path, referrer, message }) => {
+				if (message.includes('404')) return;
+				throw new Error(message);
+			}
 		}
 	}
 };
