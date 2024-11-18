@@ -90,11 +90,41 @@
             bottom: var(--space-8);
             top: auto;
             width: 90%;
+            max-width: var(--container-sm);
+            padding: var(--space-3) var(--space-4);
+        }
+
+        .floating-menu:not(.compact) {
+            padding: var(--space-4);
+            top: initial;
+            bottom: 0;
         }
 
         .menu {
-            justify-content: space-around;
             gap: var(--space-4);
+            flex-wrap: wrap;
+        }
+
+        .menu-item {
+            font-size: var(--text-xs);
+            padding: var(--space-1);
+            white-space: nowrap;
+        }
+
+        /* Hide hover effect on touch devices */
+        @media (hover: none) {
+            .hover-line {
+                display: none;
+            }
+            
+            .menu-item {
+                opacity: 0.8;
+            }
+            
+            .menu-item:active {
+                opacity: 1;
+                color: var(--primary);
+            }
         }
     }
 </style>

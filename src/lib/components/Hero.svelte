@@ -219,7 +219,7 @@
         position: relative;
         z-index: var(--z-20);
         max-width: var(--container-lg);
-        padding: var(--space-2);
+        padding: var(--space-4);
         text-align: center;
         margin: 0 auto;
         opacity: 0;

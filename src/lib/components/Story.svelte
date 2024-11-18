@@ -119,15 +119,42 @@
         .story {
             grid-template-columns: 1fr;
             gap: var(--space-8);
+            width: 100%;
+            padding: 0 var(--space-4);
         }
 
         .story-content {
             padding: var(--space-4);
+            text-align: left !important;
+            transform: translateY(50px);
+        }
+
+        .story-content.scrolled {
+            transform: translateY(50px);
         }
 
         .story-content h2 {
-            font-size: var(--text-3xl);
-            line-height: var(--leading-3xl);
+            font-size: var(--text-2xl);
+            line-height: var(--leading-2xl);
+            margin-bottom: var(--space-4);
+        }
+
+        .story-content p {
+            font-size: var(--text-lg);
+            line-height: var(--leading-lg);
+        }
+
+        .story-image {
+            transform: translateY(-50px);
+            order: 1;
+        }
+
+        .story-image.scrolled {
+            transform: translateY(-50px);
+        }
+
+        .story-image img {
+            border-radius: var(--radius-xl);
         }
     }
 </style>

@@ -52,41 +52,42 @@
 
 <style>
     .features-grid {
-		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 3rem;
-		max-width: var(--container-lg);
-		margin: 0 auto;
-	}
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--space-16);
+        max-width: var(--container-lg);
+        margin: 0 auto;
+        padding: 0 var(--space-6);
+    }
 
-	.feature-card {
-        padding: var(--space-6);
-		background: var(--white);
+    .feature-card {
+        padding: var(--space-4);
+        background: var(--white);
         border-radius: var(--radius-xl);
-		overflow: hidden;
-		text-align: center;
-		transition: transform 0.5s ease, box-shadow 0.3s ease, opacity 0.5s ease, background-size 2s ease;
-		box-shadow: var(--shadow-md);
-		opacity: 0;
-		transform: translateY(50px);
-		position: relative;
-		background-size: 110%;
-		background-position: center;
-		background-repeat: no-repeat;
-		color: var(--white);
-	}
+        overflow: hidden;
+        text-align: center;
+        transition: transform 0.5s ease, box-shadow 0.3s ease, opacity 0.5s ease, background-size 2s ease;
+        box-shadow: var(--shadow-md);
+        opacity: 0;
+        transform: translateY(50px);
+        position: relative;
+        background-size: 110%;
+        background-position: center;
+        background-repeat: no-repeat;
+        color: var(--white);
+    }
 
-	.feature-card-content {
-		position: absolute;
-		top: 0;
-		left: 0;
+    .feature-card-content {
+        position: absolute;
+        top: 0;
+        left: 0;
         bottom: 0;
         right: 0;
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-	}
+    }
 
     .feature-card.circle {
         border-radius: 50% !important;
@@ -100,81 +101,80 @@
     }
 
     .feature-card.rectangle1_2 {
-		height: 0;
-		padding-bottom: 50%;
+        height: 0;
+        padding-bottom: 50%;
         background-size: 100%;
-	}
+    }
 
     .feature-card.rectangle1_2:hover {
         background-size: 150%;
     }
 
     .feature-card.rectangle2_1 {
-		height: 0;
-		padding-bottom: 200%;
+        height: 0;
+        padding-bottom: 200%;
         background-size: 120%;
-	}
+    }
 
     .feature-card.rectangle2_1:hover {
         background-size: 150%;
     }
 
-	.feature-card.square {
-		height: 0;
-		padding-bottom: 100%;
+    .feature-card.square {
+        height: 0;
+        padding-bottom: 100%;
         background-size: 120%;
-	}
+    }
 
     .feature-card.square:hover {
         background-size: 150%;
     }
 
-	.feature-card.visible {
-		opacity: 1;
-		transform: translateY(0);
-	}
+    .feature-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
 
-	.feature-card.scrolled {
-		opacity: 0;
-		
-		transform: translateY(50px);
-	}
+    .feature-card.scrolled {
+        opacity: 0;
+        transform: translateY(50px);
+    }
 
-	.feature-card:hover {
-		transform: translateY(-5px);
-		box-shadow: var(--shadow-xl);
-		background-size: 150%;
-	}
+    .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--shadow-xl);
+        background-size: 150%;
+    }
 
-	.icon-wrapper {
-		padding: var(--space-8);
-	}
+    .icon-wrapper {
+        padding: var(--space-6);
+    }
 
-	.icon-wrapper i {
-		font-size: var(--text-6xl);
-		line-height: var(--leading-6xl);
-		color: var(--primary);
-	}
+    .icon-wrapper i {
+        font-size: var(--text-5xl);
+        line-height: var(--leading-5xl);
+        color: var(--primary);
+    }
 
-	.feature-card h3 {
-		font-size: var(--text-2xl);
-		font-family: var(--font-heading);
-		line-height: var(--leading-2xl);
-		letter-spacing: -0.02em;
-		font-weight: 500;
-		text-shadow: 0 0 1rem rgba(0, 0, 0, 0.75);
-	}
+    .feature-card h3 {
+        font-size: var(--text-2xl);
+        font-family: var(--font-heading);
+        line-height: var(--leading-2xl);
+        letter-spacing: -0.02em;
+        font-weight: 500;
+        text-shadow: 0 0 1rem rgba(0, 0, 0, 0.75);
+    }
 
-	.feature-card p {
-		padding: 0 var(--space-6) var(--space-6);
-		color: var(--gray-100);
-		font-size: var(--text-xl);
-		font-family: var(--font-body);
-		line-height: var(--leading-xl);
-		max-width: 65ch;
-		margin: 0 auto;
-		text-shadow: 0 0 1rem rgba(0, 0, 0, 0.75);
-	}
+    .feature-card p {
+        padding: 0 var(--space-6) var(--space-6);
+        color: var(--gray-100);
+        font-size: var(--text-xl);
+        font-family: var(--font-body);
+        line-height: var(--leading-xl);
+        max-width: 65ch;
+        margin: 0 auto;
+        text-shadow: 0 0 1rem rgba(0, 0, 0, 0.75);
+    }
 
     .borderRadius .feature-card {
         border-radius: var(--radius-xl);
@@ -225,24 +225,54 @@
 
     .text-long {
         padding-top: var(--space-6);
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-family: var(--font-body);
-        line-height: var(--leading-xl);
+        line-height: var(--leading-lg);
         max-width: 65ch;
         margin: 0 auto;
-        padding-left: var(--space-3);
-        padding-right: var(--space-3);
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
         text-align: justify;
     }
 
     .description {
-        font-size: var(--text-xl);
+        font-size: var(--text-lg);
         font-family: var(--font-body);
-        line-height: var(--leading-xl);
+        line-height: var(--leading-lg);
         padding-top: var(--space-6);
         font-weight: 500;
-        padding-left: var(--space-3);
-        padding-right: var(--space-3);
+        padding-left: var(--space-4);
+        padding-right: var(--space-4);
         text-align: center;
+    }
+
+    @media (min-width: 768px) {
+        .features-grid {
+            gap: var(--space-12);
+            padding: 0;
+        }
+
+        .feature-card {
+            padding: var(--space-6);
+        }
+
+        .feature-card h3 {
+            font-size: var(--text-2xl);
+        }
+
+        .icon-wrapper {
+            padding: var(--space-8);
+        }
+
+        .icon-wrapper i {
+            font-size: var(--text-6xl);
+        }
+
+        .text-long, .description {
+            font-size: var(--text-xl);
+            padding-top: var(--space-6);
+            padding-left: var(--space-3);
+            padding-right: var(--space-3);
+        }
     }
 </style>

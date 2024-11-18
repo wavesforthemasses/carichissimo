@@ -42,10 +42,11 @@
 <style>
     .features-grid {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		gap: 3rem;
+		grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+		gap: var(--space-16);
 		max-width: var(--container-lg);
 		margin: 0 auto;
+		padding: 0 var(--space-6);
 	}
 
 	.feature-card {
@@ -53,7 +54,7 @@
         border-radius: var(--radius-xl);
 		overflow: hidden;
 		text-align: center;
-		padding: var(--space-6);
+		padding: var(--space-4);
 		transition: transform 0.5s ease, box-shadow 0.3s ease, opacity 0.5s ease;
 		box-shadow: var(--shadow-md);
 		opacity: 0;
@@ -78,17 +79,17 @@
 	}
 
 	.icon-wrapper {
-		padding: var(--space-8);
+		padding: var(--space-6);
 	}
 
 	.icon-wrapper i {
-		font-size: var(--text-4xl);
-		line-height: var(--leading-4xl);
+		font-size: var(--text-5xl);
+		line-height: var(--leading-5xl);
 		color: var(--primary);
 	}
 
 	.feature-card h3 {
-		padding: var(--space-6) var(--space-6) var(--space-3);
+		padding: var(--space-4) var(--space-4) var(--space-2);
 		font-size: var(--text-2xl);
 		font-family: var(--font-heading);
 		line-height: var(--leading-xl);
@@ -96,9 +97,9 @@
 	}
 
 	.feature-card p {
-		padding: 0 var(--space-6) var(--space-6);
+		padding: 0 var(--space-4) var(--space-4);
 		color: var(--gray-600);
-		font-size: var(--text-xl);
+		font-size: var(--text-lg);
 		font-family: var(--font-body);
 		line-height: var(--leading-xl);
 		max-width: 65ch;
@@ -150,5 +151,34 @@
 
     .feature-card:hover::before {
         opacity: 1;
+    }
+
+    @media (min-width: 768px) {
+        .features-grid {
+            gap: var(--space-12);
+            padding: 0;
+        }
+
+        .feature-card {
+            padding: var(--space-6);
+        }
+
+        .feature-card h3 {
+            font-size: var(--text-2xl);
+            padding: var(--space-6) var(--space-6) var(--space-3);
+        }
+
+        .icon-wrapper {
+            padding: var(--space-8);
+        }
+
+        .icon-wrapper i {
+            font-size: var(--text-6xl);
+        }
+
+        .feature-card p {
+            padding: 0 var(--space-6) var(--space-6);
+            font-size: var(--text-xl);
+        }
     }
 </style>
