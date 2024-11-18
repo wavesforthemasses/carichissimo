@@ -34,7 +34,7 @@
     </div>
     <div class="story-content">
         <h2>{section.title}</h2>
-        <p>{section.content}</p>
+        <slot />
     </div>
 </section>
 
@@ -44,7 +44,6 @@
         grid-template-columns: 1fr 1fr;
         gap: var(--space-16);
         align-items: center;
-        background: var(--white);
         max-width: 100%;
         box-sizing: border-box;
         overflow-x: hidden;
@@ -55,6 +54,7 @@
     .story-content {
         padding: var(--space-8);
         opacity: 0;
+        text-align: left;
         transform: translateX(-50px);
         transition: transform var(--transition-slow) var(--ease-out), 
                    opacity var(--transition-slow) var(--ease-out);
@@ -128,11 +128,6 @@
         .story-content h2 {
             font-size: var(--text-3xl);
             line-height: var(--leading-3xl);
-        }
-
-        .story-content p {
-            font-size: var(--text-lg);
-            line-height: var(--leading-lg);
         }
     }
 </style>

@@ -98,9 +98,9 @@
 	.feature-card p {
 		padding: 0 var(--space-6) var(--space-6);
 		color: var(--gray-600);
-		font-size: var(--text-lg);
+		font-size: var(--text-xl);
 		font-family: var(--font-body);
-		line-height: var(--leading-lg);
+		line-height: var(--leading-xl);
 		max-width: 65ch;
 		margin: 0 auto;
 	}

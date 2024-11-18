@@ -7,6 +7,9 @@ h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
 }
 
-body, p, button, input, select, textarea {
+body {
     font-family: var(--font-body);
+    font-weight: 300;
+    font-size: var(--text-xl);
+    line-height: var(--leading-xl);
 }

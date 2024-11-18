@@ -29,15 +29,19 @@
     <div class="features-grid">
         {#each section.items as feature}
             <div class="feature-card-wrapper">
-                <div class="feature-card" style={`background-image: ${feature?.background ? feature.background : 'transparent'}`}>
-                    {#if feature.icon}
-                        <div class="icon-wrapper">
-                            <i class={feature.icon}></i>
-                        </div>
-                    {/if}
-                    <h3>{feature.title}</h3>
-                    <p>{feature.description}</p>
+                <div class="feature-card" class:square={feature.square} class:circle={feature.circle} class:rectangle1_2={feature.rectangle1_2} class:rectangle2_1={feature.rectangle2_1} style={`background-image: ${feature?.background ? feature.background : 'transparent'}`}>
+                    <div class="feature-card-content">
+                        {#if feature.icon}
+                            <div class="icon-wrapper">
+                                <i class={feature.icon}></i>
+                            </div>
+                        {/if}
+                        <h3>{feature.title}</h3>
+                    </div>
                 </div>
+                {#if feature.description}
+                    <div class="description">{feature.description}</div>
+                {/if}
                 {#if feature.textLong}
                     <div class="text-long">{feature.textLong}</div>
                 {/if}
@@ -56,11 +60,11 @@
 	}
 
 	.feature-card {
+        padding: var(--space-6);
 		background: var(--white);
         border-radius: var(--radius-xl);
 		overflow: hidden;
 		text-align: center;
-		padding: var(--space-3);
 		transition: transform 0.5s ease, box-shadow 0.3s ease, opacity 0.5s ease, background-size 2s ease;
 		box-shadow: var(--shadow-md);
 		opacity: 0;
@@ -71,6 +75,59 @@
 		background-repeat: no-repeat;
 		color: var(--white);
 	}
+
+	.feature-card-content {
+		position: absolute;
+		top: 0;
+		left: 0;
+        bottom: 0;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+	}
+
+    .feature-card.circle {
+        border-radius: 50% !important;
+        height: 0;
+        padding-bottom: 100%;
+        background-size: 200%;
+    }
+
+    .feature-card.circle:hover {
+        background-size: 300%;
+    }
+
+    .feature-card.rectangle1_2 {
+		height: 0;
+		padding-bottom: 50%;
+        background-size: 100%;
+	}
+
+    .feature-card.rectangle1_2:hover {
+        background-size: 150%;
+    }
+
+    .feature-card.rectangle2_1 {
+		height: 0;
+		padding-bottom: 200%;
+        background-size: 120%;
+	}
+
+    .feature-card.rectangle2_1:hover {
+        background-size: 150%;
+    }
+
+	.feature-card.square {
+		height: 0;
+		padding-bottom: 100%;
+        background-size: 120%;
+	}
+
+    .feature-card.square:hover {
+        background-size: 150%;
+    }
 
 	.feature-card.visible {
 		opacity: 1;
@@ -94,27 +151,26 @@
 	}
 
 	.icon-wrapper i {
-		font-size: var(--text-4xl);
-		line-height: var(--leading-4xl);
+		font-size: var(--text-6xl);
+		line-height: var(--leading-6xl);
 		color: var(--primary);
 	}
 
 	.feature-card h3 {
-		padding: var(--space-6) var(--space-6) var(--space-3);
 		font-size: var(--text-2xl);
 		font-family: var(--font-heading);
 		line-height: var(--leading-2xl);
 		letter-spacing: -0.02em;
-		font-weight: 600;
+		font-weight: 500;
 		text-shadow: 0 0 1rem rgba(0, 0, 0, 0.75);
 	}
 
 	.feature-card p {
 		padding: 0 var(--space-6) var(--space-6);
 		color: var(--gray-100);
-		font-size: var(--text-lg);
+		font-size: var(--text-xl);
 		font-family: var(--font-body);
-		line-height: var(--leading-lg);
+		line-height: var(--leading-xl);
 		max-width: 65ch;
 		margin: 0 auto;
 		text-shadow: 0 0 1rem rgba(0, 0, 0, 0.75);
@@ -168,11 +224,25 @@
     }
 
     .text-long {
-        padding: var(--space-6);
-        font-size: var(--text-lg);
+        padding-top: var(--space-6);
+        font-size: var(--text-xl);
         font-family: var(--font-body);
-        line-height: var(--leading-lg);
+        line-height: var(--leading-xl);
         max-width: 65ch;
         margin: 0 auto;
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+        text-align: justify;
+    }
+
+    .description {
+        font-size: var(--text-xl);
+        font-family: var(--font-body);
+        line-height: var(--leading-xl);
+        padding-top: var(--space-6);
+        font-weight: 500;
+        padding-left: var(--space-3);
+        padding-right: var(--space-3);
+        text-align: center;
     }
 </style>

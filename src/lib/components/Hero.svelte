@@ -1,32 +1,48 @@
 <script>
-    export const { section, animate = 0, scrollAnimate = false, clip = {tl: 0, tr: 0, br: 0, bl: 0}, curve = {tlc: 0, trc: 0, brc: 0, blc: 0}, overlay = false, ...otherProps } = $props();
+    export const { 
+        section, 
+        scrollAnimate = false, 
+        clip = {tl: 0, tr: 0, br: 0, bl: 0}, 
+        curve = {tlc: 0, trc: 0, brc: 0, blc: 0}, 
+        clip2 = {tl: 0, tr: 0, br: 0, bl: 0}, 
+        curve2 = {tlc: 0, trc: 0, brc: 0, blc: 0}, 
+        overlay = false, 
+        ...otherProps 
+    } = $props();
     let scrollY;
     let randomIntegerBig = Math.floor(Math.random() * 1000000000000000000);
     let width = $state(0);
     let height = $state(0);
+    let clientHeight = $state(0);
     let scrollCurrent = $state(0);
     let node = $state(null);
     let scrollPerc = $derived.by(() => {
         const top = node ? node.getBoundingClientRect().top : 0;
-        if(animate || !scrollAnimate) return -1;
+        if(!scrollAnimate) return -1;
         if(scrollCurrent < top) return 0;
-        if((scrollCurrent - top) > (top + height)) return 1;
-        return (scrollCurrent - top) / (top + height);
+        if((scrollCurrent - top) > (height + clientHeight)) return 1;
+        return (scrollCurrent - top) / (height + clientHeight);
     });
 
-    const getClipPath = (clip, curve, width, height, scrollPerc) => {
+    $effect(() => {
+        console.log(node?.getBoundingClientRect());
+    });
+
+    const getClipPath = (clip, curve, width, height, scrollPerc, clip2, curve2) => {
         if(!width || !height) return "";
-        let { tl, tr, br, bl } = clip;
-        let { tlc, trc, brc, blc } = curve;
+        let { tl = 0, tr = 0, br = 0, bl = 0 } = clip;
+        let { tlc = 0, trc = 0, brc = 0, blc = 0 } = curve;
+        let { tl: tl2 = 0, tr: tr2 = 0, br: br2 = 0, bl: bl2 = 0 } = clip2;
+        let { tlc: tlc2 = 0, trc: trc2 = 0, brc: brc2 = 0, blc: blc2 = 0 } = curve2;
         if(scrollPerc >= 0){
-            tl = tl * scrollPerc;
-            tr = tr * scrollPerc;
-            br = br * scrollPerc;
-            bl = bl * scrollPerc;
-            tlc = tlc * scrollPerc;
-            trc = trc * scrollPerc;
-            brc = brc * scrollPerc;
-            blc = blc * scrollPerc;
+            tl = tl2 * scrollPerc + tl * (1 - scrollPerc);
+            tr = tr2 * scrollPerc + tr * (1 - scrollPerc);
+            br = br2 * scrollPerc + br * (1 - scrollPerc);
+            bl = bl2 * scrollPerc + bl * (1 - scrollPerc);
+            tlc = tlc2 * scrollPerc + tlc * (1 - scrollPerc);
+            trc = trc2 * scrollPerc + trc * (1 - scrollPerc);
+            brc = brc2 * scrollPerc + brc * (1 - scrollPerc);
+            blc = blc2 * scrollPerc + blc * (1 - scrollPerc);
         }
         let p = `M `
         let points = []
@@ -161,17 +177,16 @@
     }
 </script>
 
-<svelte:window bind:scrollY={scrollCurrent} />
+<svelte:window bind:scrollY={scrollCurrent} bind:innerHeight={clientHeight} />
 
 <section 
     class={`hero ${Object.keys(otherProps || {}).filter(key => ![null, false].includes(otherProps[key])).join(' ')}`}
-    style={`background-image: url('${section.image}'); --clip1: path("${getClipPath(clip, curve, width, height, scrollPerc)}"); --clip2: path("${getClipPath(clip, {tlc: 0, trc: 0, brc: 0, blc: 0}, width, height)}"); animation-duration: ${animate}s;`}
+    style={`${section.image ? `background-image: url('${section.image}');` : `background: ${section.background};`} --clip1: path("${getClipPath(clip, curve, width, height, scrollPerc, clip2, curve2)}");`}
     role="banner"
     aria-labelledby="hero-title"
     bind:clientWidth={width}
     bind:clientHeight={height}
     bind:this={node}
-    class:animate={animate}
 >
     {#if overlay}
         <div class="hero-overlay" aria-hidden="true"></div>
@@ -192,13 +207,14 @@
         {#if section.description}
             <div class="hero-description">{section.description}</div>
         {/if}
+        <slot />
     </div>
 </section>
 
 <style>
 
     .logo {
-        width: 100px;
+        width: 200px;
         margin: 0 auto;
         margin-bottom: var(--space-8);
     }
@@ -253,11 +269,6 @@
         background-size: cover;
         background-position: center;
         clip-path: var(--clip1);
-        &.animate{
-            animation-name: clipPath;
-            animation-timing-function: ease;
-            animation-iteration-count: infinite;
-        }
         &>svg{
             position: fixed;
             top: 0;
@@ -427,9 +438,16 @@
         }
     }
 
-    @keyframes clipPath {
-        0% { clip-path: var(--clip1); }
-        50% { clip-path: var(--clip2); }
-        100% { clip-path: var(--clip1); }
+    section.shadow:before{
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: inherit;
+            clip-path: inherit;
+            box-shadow: inset 0 0 10rem rgba(0, 0, 0, 0.5);
+            pointer-events: none;
     }
 </style>

@@ -6,7 +6,7 @@
   export let title = "Lorem ipsum dolor sit amet";
   export let highlightedWords = ["amet"];
   export let tagline = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
-  
+ 
   // Stats data
   export let stats = [
     { number: "2x", label: "Lorem ipsum" }
@@ -16,13 +16,15 @@
   export let buttons = [{
     text: "Buy now",
     onClick: () => console.log('clicked'),
+    href: '/',
     secondary: false
   }]
   
   // Floating card
   export let floatingCard = {
     icon: "ri-shopping-cart-2-line",
-    text: "Lorem ipsum"
+    text: "Lorem ipsum",
+    href: "/"
   };
   
   // Optional image URL
@@ -65,7 +67,11 @@
       {#if buttons.length > 0}
         <div class="cta-group">
           {#each buttons as button}
-            <button class="cta-button" class:secondary-button={button.secondary} on:click={button.onClick}>{button.text}</button>
+            {#if button.href}
+              <a href={button.href} class="cta-button" class:secondary-button={button.secondary}>{button.text}</a>
+            {:else}
+              <button class="cta-button" class:secondary-button={button.secondary} on:click={button.onClick}>{button.text}</button>
+            {/if}
           {/each}
         </div>
       {/if}
@@ -75,15 +81,24 @@
     
     <div class="hero-image">
       {#if imageUrl}
-        <img src={imageUrl} alt="Hero" class="hero-img" />
+        <div class="wrapper-image">
+          <img src={imageUrl} alt={title} class="hero-img" />
+        </div>
       {:else}
         <div class="placeholder-image"></div>
       {/if}
       {#if floatingCard}
-        <div class="floating-card">
-            <span class="card-icon"><i class={floatingCard.icon}></i></span>
+        {#if floatingCard.href}
+          <a href={floatingCard.href} class="floating-card">
+              <span class="card-icon"><i class={floatingCard.icon}></i></span>
             <span>{floatingCard.text}</span>
-        </div>
+          </a>
+        {:else}
+          <div class="floating-card">
+              <span class="card-icon"><i class={floatingCard.icon}></i></span>
+              <span>{floatingCard.text}</span>
+          </div>
+        {/if}
       {/if}
     </div>
   </section>
@@ -101,7 +116,6 @@
     gap: var(--space-16);
     min-height: 90vh;
     align-items: center;
-    padding: 0 var(--space-8);
   }
 
   .hero-content {
@@ -113,7 +127,7 @@
   h1 {
     font-family: var(--font-heading);
     font-size: var(--text-6xl);
-    color: var(--black);
+    color: var(--secondary);
     line-height: var(--leading-6xl);
     letter-spacing: -0.02em;
   }
@@ -126,19 +140,19 @@
   }
 
   .badge {
-    background: var(--primary-lightest);
-    color: var(--primary-darker);
+    background: var(--primary-light);
+    color: var(--white);
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-full);
     font-size: var(--text-sm);
     line-height: var(--leading-sm);
-    font-weight: 600;
+    font-weight: 500;
     width: fit-content;
     margin-bottom: var(--space-4);
   }
 
   .highlight {
-    background: linear-gradient(120deg, var(--primary-lightest) 0%, var(--primary) 100%);
+    background: linear-gradient(120deg, var(--primary-light) 0%, var(--primary) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
@@ -179,15 +193,15 @@
   .cta-button, .secondary-button {
     padding: var(--space-4) var(--space-8);
     border-radius: var(--radius-full);
-    font-weight: 600;
-    font-size: var(--text-lg);
-    line-height: var(--leading-lg);
+    font-weight: 500;
+    font-size: var(--text-xl);
+    line-height: var(--leading-xl);
     cursor: pointer;
     transition: all var(--transition-fast) var(--ease-out);
   }
 
   .cta-button {
-    background: var(--primary);
+    background: linear-gradient(120deg, var(--primary-light) 0%, var(--primary) 100%);
     color: var(--primary-reverse);
     border: none;
   }
@@ -237,7 +251,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    font-weight: 600;
+    font-weight: 500;
     animation: float 3s ease-in-out infinite;
   }
 
@@ -274,5 +288,37 @@
       bottom: var(--space-4);
       right: var(--space-4);
     }
+  }
+
+  .wrapper-image {
+    height: max-content;
+    position: relative;
+  }
+
+  .wrapper-image:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      var(--white) 0px,
+      var(--white) 2%,
+      transparent 2%,
+      transparent 4%,
+      var(--white) 4%,
+      var(--white) 6%,
+      transparent 6%,
+      transparent 8%,
+      var(--white) 8%,
+      var(--white) 10%,
+      transparent 10%,
+      transparent 12%,
+      var(--white) 12%,
+      var(--white) 14%,
+      transparent 14%
+    );
   }
 </style>

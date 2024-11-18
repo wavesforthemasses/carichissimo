@@ -77,8 +77,9 @@
     padding: var(--space-4) var(--space-8);
     border-radius: var(--radius-full);
     border: none;
-    font-weight: 600;
-    font-size: var(--text-lg);
+    font-weight: 500;
+    font-size: var(--text-xl);
+    line-height: var(--leading-xl);
     cursor: pointer;
     transition: all var(--transition-fast) var(--ease-out);
   }
@@ -175,7 +176,7 @@
     padding: var(--space-2) var(--space-4);
     border-radius: var(--radius-full);
     font-size: var(--text-sm);
-    font-weight: 600;
+    font-weight: 500;
     width: fit-content;
     margin-bottom: var(--space-4);
   }
@@ -225,7 +226,8 @@
     border-radius: var(--radius-full);
     border: 2px solid var(--primary);
     font-weight: bold;
-    font-size: var(--text-lg);
+    font-size: var(--text-xl);
+    line-height: var(--leading-xl);
     cursor: pointer;
     transition: all var(--transition-fast) var(--ease-out);
   }
@@ -246,7 +248,7 @@
     display: flex;
     align-items: center;
     gap: var(--space-2);
-    font-weight: 600;
+    font-weight: 500;
     animation: float 3s ease-in-out infinite;
   }
 
