@@ -12,7 +12,32 @@
     onMount(() => {
         visible = true;
     });
+
+    // Add metadata for SEO
+    const metadata = {
+        title: "Carichissimo Business - Consulenza e Supporto per Bar | Caffè Premium",
+        description: "Trasforma il tuo bar con Carichissimo Business. Offriamo consulenza strategica, formazione del personale e prodotti premium per far crescere il tuo locale. Scopri come aumentare i tuoi profitti.",
+        keywords: "consulenza bar, formazione baristi, caffè premium, gestione bar, crescita bar, consulenza strategica bar, caffè per bar"
+    };
 </script>
+
+<svelte:head>
+    <title>{metadata.title}</title>
+    <meta name="description" content={metadata.description} />
+    <meta name="keywords" content={metadata.keywords} />
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content={metadata.title} />
+    <meta property="og:description" content={metadata.description} />
+    <meta property="og:image" content="/bar.jpeg" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metadata.title} />
+    <meta name="twitter:description" content={metadata.description} />
+    <meta name="twitter:image" content="/bar.jpeg" />
+</svelte:head>
 
 <main>
     <Hero section={{

@@ -12,7 +12,32 @@
     onMount(() => {
         visible = true;
     });
+
+    // Add metadata for SEO
+    const metadata = {
+        title: "Caffè Carichissimo - Il caffè che ti fa sentire al massimo",
+        description: "Scopri Caffè Carichissimo, il caffè italiano con il 30% di caffeina in più. Perfetto per studio, lavoro e sport. 100% naturale e energizzante.",
+        keywords: "caffè italiano, caffè energetico, caffeina naturale, caffè per studio, caffè per lavoro, caffè per sport"
+    };
 </script>
+
+<svelte:head>
+    <title>{metadata.title}</title>
+    <meta name="description" content={metadata.description} />
+    <meta name="keywords" content={metadata.keywords} />
+    
+    <!-- Open Graph tags -->
+    <meta property="og:title" content={metadata.title} />
+    <meta property="og:description" content={metadata.description} />
+    <meta property="og:image" content="/prodotto.jpeg" />
+    <meta property="og:type" content="website" />
+    
+    <!-- Twitter Card tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={metadata.title} />
+    <meta name="twitter:description" content={metadata.description} />
+    <meta name="twitter:image" content="/prodotto.jpeg" />
+</svelte:head>
 
 <main>
 	<Hero section={{
