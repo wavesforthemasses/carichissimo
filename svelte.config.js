@@ -14,7 +14,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: '/carichissimo'
+			base: process.env.NODE_ENV === 'production' ? '/carichissimo' : ''
 		},
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {
