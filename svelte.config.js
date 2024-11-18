@@ -14,7 +14,7 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: process.argv.includes('production') ? '/carichissimo' : ''
+			base: process.env.NODE_ENV === 'production' ? '/carichissimo' : ''
 		}
 	}
 };
