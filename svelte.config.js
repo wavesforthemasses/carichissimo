@@ -15,13 +15,19 @@ const config = {
 		},
 		prerender: {
 			handleHttpError: ({ path, referrer, message }) => {
-				// Ignore specific errors related to missing base path
-				if (path === '/' || path === '/404') {
+				// Ignore all 404 errors during prerendering
+				if (message.includes('404')) {
 					return;
 				}
 				// Throw other errors
 				throw new Error(message);
-			}
+			},
+			// Add entries that need to be prerendered
+			entries: [
+				'*',
+				'/carichissimo',
+				'/carichissimo/*'
+			]
 		}
 	}
 };
