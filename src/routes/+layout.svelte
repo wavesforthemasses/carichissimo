@@ -2,6 +2,7 @@
     import '../app.css';
     import 'remixicon/fonts/remixicon.css';
     import FloatingMenu from '$lib/components/FloatingMenu.svelte';
+    export const prerender = true
 </script>
 
 <FloatingMenu menuItems={[
