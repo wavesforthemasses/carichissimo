@@ -6,10 +6,12 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: '404.html'
+			fallback: '404.html',
+			precompress: false,
+			strict: true
 		}),
 		paths: {
-			base: process.env.NODE_ENV === 'production' ? '/carichissimo' : ''
+			base: process.argv.includes('dev') ? '' : process.env.BASE_PATH
 		}
 	}
 };
