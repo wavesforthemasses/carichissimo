@@ -1,34 +1,12 @@
-import adapter from '@sveltejs/adapter-static';
+import adapter from '@sveltejs/adapter-auto';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	kit: {
-		adapter: adapter({
-			pages: 'build',
-			assets: 'build',
-			fallback: '404.html',
-			precompress: false,
-			strict: true
-		}),
-		paths: {
-			base: '/carichissimo'
-		},
-		prerender: {
-			handleHttpError: ({ path, referrer, message }) => {
-				// Ignore all 404 errors during prerendering
-				if (message.includes('404')) {
-					return;
-				}
-				// Throw other errors
-				throw new Error(message);
-			},
-			// Add entries that need to be prerendered
-			entries: [
-				'*',
-				'/carichissimo',
-				'/carichissimo/*'
-			]
-		}
+		// adapter-auto only supports some environments, see https://svelte.dev/docs/kit/adapter-auto for a list.
+		// If your environment is not supported, or you settled on a specific environment, switch out the adapter.
+		// See https://svelte.dev/docs/kit/adapters for more information about adapters.
+		adapter: adapter()
 	}
 };
 
