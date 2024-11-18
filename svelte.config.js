@@ -1,12 +1,19 @@
 import adapter from '@sveltejs/adapter-static';
-import { vitePreprocess } from '@sveltejs/kit/vite';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-    kit: {
-        appDir: 'app', // Required as the default is _app
-        adapter: adapter()
-    },
-    preprocess: vitePreprocess()
+	kit: {
+		adapter: adapter({
+			pages: 'build',
+			assets: 'build',
+			fallback: 'index.html',
+			precompress: false,
+			strict: true
+		}),
+		paths: {
+			base: process.env.NODE_ENV === 'production' ? '/carichissimo' : ''
+		}
+	}
 };
+
 export default config;
