@@ -11,7 +11,17 @@ const config = {
 			strict: true
 		}),
 		paths: {
-			base: process.env.NODE_ENV === 'development' ? '' : '/carichissimo'
+			base: '/carichissimo'
+		},
+		prerender: {
+			handleHttpError: ({ path, referrer, message }) => {
+				// Ignore specific errors related to missing base path
+				if (path === '/' || path === '/404') {
+					return;
+				}
+				// Throw other errors
+				throw new Error(message);
+			}
 		}
 	}
 };
