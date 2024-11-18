@@ -58,21 +58,21 @@
                     title: 'Per lo studio',
                     description: 'Per concentrarti e dare il massimo',
 					textLong: "Per tutte quelle volte che un caffè non basta, Carichissimo è il caffè che ti aiuta a concentrarti e a dare il massimo.",
-					background: "url(/study.jpeg)"
+					image: "url(/study.jpeg)"
                 },
                 {
 					rectangle1_2: true,
                     title: 'Per il lavoro', 
                     description: 'Perché senza sarebbe impossibile',
 					textLong: "Quando la giornata è lunga, non gettare la spugna, Carichissimo è l'energia che fa raggiungere i tuoi obiettivi.",
-					background: "url(/business.jpeg)"
+					image: "url(/business.jpeg)"
                 },
                 {
 					rectangle1_2: true,
                     title: 'Per lo sport',
                     description: 'Per darti l\'energia di cui hai bisogno',
 					textLong: "Per tutti quegli sport che richiedono energia, Carichissimo è l'alternativa tradizionale agli energy drink.",
-					background: "url(/sport.jpeg)"
+					image: "url(/sport.jpeg)"
                 }
             ]
         }} borderRadiusHuge 
@@ -113,21 +113,21 @@
                     title: 'Daily Blend',
                     description: 'Una miscela nata dall\'esigenza quotidiana di ogni lavoratore, studente o atleta.',
 					textLong: "Il daily blend di Carichissimo è pensato per chi come te usa tanta energia ogni giorno. In una sola tazzina hai tutto ciò che ti serve per essere al massimo.",
-					background: "url(/miscela2.jpeg)"
+					image: "url(/miscela2.jpeg)"
                 },
                 {
 					square: true,
                     title: '+ caffeina',
                     description: 'Carichissimo contiene naturalmente il 30% di caffeina in più di un normale caffè.',
 					textLong: "Questo è il mix di natura e tradizione che ti permette di essere al massimo senza ricorrere ad energy drink e simili.",
-					background: "url(/caffeina.jpeg)"
+					image: "url(/caffeina.jpeg)"
                 },
                 {
 					square: true,
                     title: 'Carichissimo!',
                     description: 'Dopo che lo avrai bevuto anche tu potrai finalmente dire "Sono Carichissimo!"',
 					textLong: "Carichissimo è il caffè che ti fa sentire al massimo. È il caffè che ti aiuta a concentrarti e a dare il massimo sia in studio che al lavoro.",
-					background: "url(/carichissimo2.jpeg)"
+					image: "url(/carichissimo2.jpeg)"
                 }
             ]
         }} borderRadiusHuge 

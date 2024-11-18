@@ -22,11 +22,7 @@
         if(scrollCurrent < top) return 0;
         if((scrollCurrent - top) > (height + clientHeight)) return 1;
         return (scrollCurrent - top) / (height + clientHeight);
-    });
-
-    $effect(() => {
-        console.log(node?.getBoundingClientRect());
-    });
+    })
 
     const getClipPath = (clip, curve, width, height, scrollPerc, clip2, curve2) => {
         if(!width || !height) return "";

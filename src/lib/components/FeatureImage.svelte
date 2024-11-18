@@ -29,7 +29,7 @@
     <div class="features-grid">
         {#each section.items as feature}
             <div class="feature-card-wrapper">
-                <div class="feature-card" class:square={feature.square} class:circle={feature.circle} class:rectangle1_2={feature.rectangle1_2} class:rectangle2_1={feature.rectangle2_1} style={`background-image: ${feature?.background ? feature.background : 'transparent'}`}>
+                <div class="feature-card" class:square={feature.square} class:circle={feature.circle} class:rectangle1_2={feature.rectangle1_2} class:rectangle2_1={feature.rectangle2_1} style={`${feature?.image ? `background-image: ${feature.image};` : (feature.background ? `background-color: ${feature.background};` : '')}`}>
                     <div class="feature-card-content">
                         {#if feature.icon}
                             <div class="icon-wrapper">
