@@ -14,7 +14,7 @@
             <a href={item.href} class="menu-item">
                 <span class="text">{item.text}</span>
                 <span class="hover-line"></span>
-            </a>ok
+            </a>
         {/each}
     </nav>
 </div>
