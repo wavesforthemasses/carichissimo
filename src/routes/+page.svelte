@@ -13,11 +13,11 @@
         visible = true;
     });
 
-    // Add metadata for SEO
+    // Updated metadata for SEO
     const metadata = {
-        title: "Caffè Carichissimo - Il caffè che ti fa sentire al massimo",
-        description: "Scopri Caffè Carichissimo, il caffè italiano con il 30% di caffeina in più. Perfetto per studio, lavoro e sport. 100% naturale e energizzante.",
-        keywords: "caffè italiano, caffè energetico, caffeina naturale, caffè per studio, caffè per lavoro, caffè per sport"
+        title: "Caffè Carichissimo | Caffè con 30% di Caffeina in Più | Energy Coffee",
+        description: "Caffè Carichissimo: la miscela italiana con 30% di caffeina in più. Energia 100% naturale per studio, lavoro e sport. Alternative naturale agli energy drink. Daily blend per massima concentrazione.",
+        keywords: "caffè carichissimo, caffè energia, caffeina naturale, caffè per studio, caffè per lavoro, caffè per sport, energy coffee, caffè italiano, miscela energetica, alternative energy drink"
     };
 </script>
 
@@ -31,19 +31,26 @@
     <meta property="og:description" content={metadata.description} />
     <meta property="og:image" content="/prodotto.jpeg" />
     <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://carichissimo.com" />
+    <meta property="og:site_name" content="Caffè Carichissimo" />
     
     <!-- Twitter Card tags -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={metadata.title} />
     <meta name="twitter:description" content={metadata.description} />
     <meta name="twitter:image" content="/prodotto.jpeg" />
+
+    <!-- Additional SEO meta tags -->
+    <meta name="robots" content="index, follow" />
+    <meta name="author" content="Carichissimo" />
+    <link rel="canonical" href="https://carichissimo.com" />
 </svelte:head>
 
 <main>
 	<Hero section={{
 			logo: `/logoSmall2.png`,
             title: 'Caffè Carichissimo',
-			description: 'Il caffè che ti fa sentire al massimo',
+			description: 'La miscela con più caffeina',
 			image: `/home.jpeg`,
             action: 'Negozio',
             link: 'https://carichissimo-partner.sumupstore.com/prodotti'
@@ -61,7 +68,7 @@
 		badge=""
 		title="Ricarica la tua Energia"
 		highlightedWords={["Energia"]}
-		tagline="Carichissimo è il caffè che ricarica la tua energia"
+		tagline="Carichissimo la miscela con più caffeina"
 		stats={[
 				{ number: "30%", label: "+ energia" },
 				{ number: "100%", label: "Naturale" }
@@ -151,7 +158,7 @@
 					square: true,
                     title: 'Carichissimo!',
                     description: 'Dopo che lo avrai bevuto anche tu potrai finalmente dire "Sono Carichissimo!"',
-					textLong: "Carichissimo è il caffè che ti fa sentire al massimo. È il caffè che ti aiuta a concentrarti e a dare il massimo sia in studio che al lavoro.",
+					textLong: "Carichissimo è la miscela con più caffeina. È il caffè che ti aiuta a concentrarti e a dare il massimo sia in studio che al lavoro.",
 					image: `/carichissimo2.jpeg`
                 }
             ]

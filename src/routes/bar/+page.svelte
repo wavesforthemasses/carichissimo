@@ -13,11 +13,11 @@
         visible = true;
     });
 
-    // Add metadata for SEO
+    // Updated metadata for SEO
     const metadata = {
-        title: "Carichissimo Business - Consulenza e Supporto per Bar | Caffè Premium",
-        description: "Trasforma il tuo bar con Carichissimo Business. Offriamo consulenza strategica, formazione del personale e prodotti premium per far crescere il tuo locale. Scopri come aumentare i tuoi profitti.",
-        keywords: "consulenza bar, formazione baristi, caffè premium, gestione bar, crescita bar, consulenza strategica bar, caffè per bar"
+        title: "Carichissimo Business | Formazione Baristi e Caffè Premium per il Tuo Bar",
+        description: "Trasforma il tuo bar con Carichissimo Business: formazione baristi, tecniche di vendita e caffè premium. Combiniamo tradizione e innovazione per far crescere il tuo locale e creare un'esperienza WOW.",
+        keywords: "formazione baristi, caffè premium, consulenza bar, tecniche di vendita bar, esperienza cliente bar, trasformazione bar, innovazione bar"
     };
 </script>
 
@@ -37,6 +37,10 @@
     <meta name="twitter:title" content={metadata.title} />
     <meta name="twitter:description" content={metadata.description} />
     <meta name="twitter:image" content="/bar.jpeg" />
+
+    <!-- Additional relevant meta tags -->
+    <meta name="author" content="Carichissimo" />
+    <meta name="robots" content="index, follow" />
 </svelte:head>
 
 <main>
@@ -62,8 +66,8 @@
         highlightedWords={["crescere"]}
         tagline="Supportiamo i bar italiani nel loro percorso di crescita"
         stats={[
-            { number: "100%", label: "Consulenza personalizzata" },
-            { number: "WOW", label: "Aumento degli incassi" }
+            { number: "100%", label: "Formazione dedicata" },
+            { number: "WOW", label: "Ti aiutiamo ad attrarre + clientela" }
         ]}
         buttons={[
             { text: "Richiedi consulenza", href: 'https://carichissimopartner.it/contatto/', secondary: false }
@@ -78,24 +82,17 @@
             items: [
                 {
                     rectangle1_2: true,
-                    title: 'Consulenza Strategica',
-                    description: 'Analisi e strategie su misura per il tuo locale',
-                    textLong: "Analizziamo il tuo business e creiamo un piano d'azione personalizzato per aumentare i tuoi profitti.",
-                    background: "var(--primary-light)"
-                },
-                {
-                    rectangle1_2: true,
-                    title: 'Formazione del Personale',
+                    title: 'Formazione per i tuoi baristi',
                     description: 'Tecniche di vendita e servizio d\'eccellenza',
-                    textLong: "Formiamo il tuo staff per offrire un'esperienza WOW ai tuoi clienti.",
-                    background: "var(--primary-dark)"
+                    textLong: "Formiamo i tuoi baristi per offrire un'esperienza WOW ai tuoi clienti.",
+                    background: "var(--primary-light)"
                 },
                 {
                     rectangle1_2: true,
                     title: 'Prodotti Premium',
                     description: 'Un caffè che fa la differenza',
                     textLong: "Ti forniamo un caffè premium che ti distingue dalla concorrenza.",
-                    background: "var(--primary-darkest)"
+                    background: "var(--secondary)"
                 }
             ]
         }} borderRadiusHuge 

@@ -136,7 +136,6 @@
     font-size: var(--text-xl);
     line-height: var(--leading-xl);
     color: var(--gray-600);
-    max-width: 25ch;
   }
 
   .badge {
