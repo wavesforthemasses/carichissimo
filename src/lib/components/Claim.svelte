@@ -6,6 +6,7 @@
   export let title = "Lorem ipsum dolor sit amet";
   export let highlightedWords = ["amet"];
   export let tagline = "Lorem ipsum dolor sit amet consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.";
+  export let h1 = true;
  
   // Stats data
   export let stats = [
@@ -37,18 +38,33 @@
       {#if badge}
         <div class="badge">{badge}</div>
       {/if}
-      <h1>
-        {#each title.split(' ') as word, index}
-          {#if highlightedWords.includes(word)}
-            <span class="highlight">{word}</span>
-          {:else}
-            {word}
-          {/if}
-          {#if index < title.split(' ').length - 1}
-             
-          {/if}
-        {/each}
-      </h1>
+      {#if h1}
+        <h1>
+          {#each title.split(' ') as word, index}
+            {#if highlightedWords.includes(word)}
+              <span class="highlight">{word}</span>
+            {:else}
+              {word}
+            {/if}
+            {#if index < title.split(' ').length - 1}
+              
+            {/if}
+          {/each}
+        </h1>
+      {:else}
+        <h2>
+          {#each title.split(' ') as word, index}
+            {#if highlightedWords.includes(word)}
+              <span class="highlight">{word}</span>
+            {:else}
+              {word}
+            {/if}
+            {#if index < title.split(' ').length - 1}
+              
+            {/if}
+          {/each}
+        </h2>
+      {/if}
       {#if tagline}
         <p class="tagline">{tagline}</p>
       {/if}
@@ -124,7 +140,7 @@
     gap: var(--space-4);
   }
 
-  h1 {
+  h1, h2 {
     font-family: var(--font-heading);
     font-size: var(--text-6xl);
     color: var(--secondary);
@@ -282,7 +298,7 @@
       order: 1;
     }
 
-    h1 {
+    h1, h2 {
       font-size: var(--text-4xl);
       line-height: var(--leading-4xl);
     }
@@ -336,7 +352,7 @@
   }
 
   @media (max-width: 480px) {
-    h1 {
+    h1, h2 {
       font-size: var(--text-4xl);
       line-height: var(--leading-4xl);
     }

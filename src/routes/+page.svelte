@@ -172,6 +172,7 @@
 		title="Pronti, shop, via!"
 		highlightedWords={["shop,"]}
 		tagline="Acquista il tuo primo Carichissimo"
+		h1={false}
 		stats={[
 				{ number: "30%", label: "+ energia" },
 				{ number: "100%", label: "Naturale" }
